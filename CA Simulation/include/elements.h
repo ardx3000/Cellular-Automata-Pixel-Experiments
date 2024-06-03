@@ -5,7 +5,7 @@
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 450
-#define CELL_SIZE 15  // Increase this value to make the sand particles bigger
+#define CELL_SIZE 10  // Increase this value to make the sand particles bigger
 
 typedef enum {
     ELEMENT_NONE,

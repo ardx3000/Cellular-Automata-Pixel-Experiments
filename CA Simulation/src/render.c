@@ -11,6 +11,9 @@ void DrawMyGrid(Cell grid[SCREEN_HEIGHT / CELL_SIZE][SCREEN_WIDTH / CELL_SIZE]){
                 case ELEMENT_SAND:
                     DrawRectangle(j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE, BROWN);
                     break;
+                case ELEMENT_WATER:
+                    DrawRectangle(j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE, BLUE);
+                    break;
             
             default:
                 break;

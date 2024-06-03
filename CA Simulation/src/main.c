@@ -5,6 +5,7 @@
 #include "elements.h"
 #include "physics.h"
 #include "render.h"
+#include "../include/menu.h"
 
 int main (void){
 
@@ -16,22 +17,30 @@ int main (void){
     Cell grid[rows][cols];
     InitializeGrid(grid);
 
+    Menu menu;
+    InitMenu(&menu);
+
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
     {
-        UpdateGrid(grid);
+ 
+        UpdateMenu(&menu, grid);
+
+        ElementType selectedElement = GetSelectedElement(&menu);
 
         if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
         {
             int mouseX = GetMouseX();
             int mouseY = GetMouseY();
-            DropElement(grid, mouseX, mouseY, ELEMENT_SAND);
+            DropElement(grid, mouseX, mouseY, selectedElement);
         }
 
+       UpdateGrid(grid);
         BeginDrawing();
         ClearBackground(BLACK);
         DrawMyGrid(grid);
+        DrawMyMenu(&menu);
         EndDrawing();
     }
 
